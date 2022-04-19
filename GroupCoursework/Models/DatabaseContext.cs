@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace GroupCoursework.Models
 {
-    public class DatabaseContext:DbContext
+    public class DatabaseContext:IdentityDbContext<User>
 
     {
         public DbSet<Actor> Actors { get; set; }

@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace GroupCoursework.Models
 {
-    public class User
+    public class User:IdentityUser
+
     {
         [Key]
         public int UserNumber { get; set; }

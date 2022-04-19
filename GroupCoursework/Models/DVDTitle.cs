@@ -8,13 +8,14 @@ namespace GroupCoursework.Models
 
         [Key]
         public int DVDNumber { get; set; }
+        public string DvdTitle { get; set; }
         public int ProduceNumber { get; set; }
-        public int CategoryNumber { get; set; }
-        public int StudioNumber { get; set; }
         [ForeignKey("ProduceNumber")]
         public Producer Produce { get; set; }
+        public int CategoryNumber { get; set; }
         [ForeignKey("CategoryNumber")]
         public DVDCategory Category { get; set; }
+        public int StudioNumber { get; set; }
         [ForeignKey("StudioNumber")]
         public Studio Studio { get; set; }
         public DateTime? DateReleased { get; set; }
