@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "GetActorDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details of DVD stocked by shop</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+    </p>*@
+
+        
+<div class="container">
+    <form action="@Url.Action("GetActorDetails", "User")" method="get">
+        <div class="row">
+           <select id="surname" name="name" class="form-control custom-select bg-white border-left-0 border-md" required>
+                        <option value="">Select a actor surname</option>
+                        @foreach (var name in ViewBag.Actors)
+                        {
+                            <option value="@name.ActorSurname"> @name.ActorFirstName @name.ActorSurname</option>
+                        }
+                    </select>
+            <div class="col-sm">
+              <div class="form-group">
+             @*      <input type="button" value="Search" onclick="location.href='@Url.Action("GetActorDetails", "NormalUser", new {name = "Smith"})'" />*@
+                    <button type="submit">submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>DVD Number</th>
+            <th>DVD Title</th>
+            <th>Actor First Name</th>
+            <th>Actor Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.name)
+        {
+            <tr>
+                <td>@item.dvdTitle.DVDNumber</td>
+                <td>@item.dvdTitle.DvdTitle</td>
+                <td>@item.actorDetails.ActorFirstName</td>
+                <td>@item.actorDetails.ActorSurname</td>
+
+                @*     <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>*@
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroupCoursework.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220412105917_Initial Create")]
+    [Migration("20220430152852_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -53,7 +53,7 @@ namespace GroupCoursework.Migrations
                     b.Property<int>("ActorNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("DVDNumber");
+                    b.HasKey("DVDNumber", "ActorNumber");
 
                     b.HasIndex("ActorNumber");
 
@@ -68,9 +68,8 @@ namespace GroupCoursework.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryNumber"), 1L, 1);
 
-                    b.Property<string>("AgeRestricted")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("AgeRestricted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("CategoryDescription")
                         .IsRequired()
@@ -96,6 +95,9 @@ namespace GroupCoursework.Migrations
                     b.Property<DateTime>("DatePurchased")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
                     b.HasKey("CopyNumber");
 
                     b.HasIndex("DVDNumber");
@@ -117,11 +119,15 @@ namespace GroupCoursework.Migrations
                     b.Property<DateTime?>("DateReleased")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DvdTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PenaltyCharge")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProduceNumber")
+                    b.Property<int>("ProducerNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("StandardCharge")
@@ -135,7 +141,7 @@ namespace GroupCoursework.Migrations
 
                     b.HasIndex("CategoryNumber");
 
-                    b.HasIndex("ProduceNumber");
+                    b.HasIndex("ProducerNumber");
 
                     b.HasIndex("StudioNumber");
 
@@ -301,6 +307,48 @@ namespace GroupCoursework.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserNumber"), 1L, 1);
 
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -356,9 +404,9 @@ namespace GroupCoursework.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GroupCoursework.Models.Producer", "Produce")
+                    b.HasOne("GroupCoursework.Models.Producer", "Producer")
                         .WithMany()
-                        .HasForeignKey("ProduceNumber")
+                        .HasForeignKey("ProducerNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -370,7 +418,7 @@ namespace GroupCoursework.Migrations
 
                     b.Navigation("Category");
 
-                    b.Navigation("Produce");
+                    b.Navigation("Producer");
 
                     b.Navigation("Studio");
                 });

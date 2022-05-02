@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GroupCoursework.Models
 {
-    public class DatabaseContext:IdentityDbContext<User>
+    public class DatabaseContext : DbContext
 
     {
         public DbSet<Actor> Actors { get; set; }
@@ -23,5 +23,15 @@ namespace GroupCoursework.Models
         {
             Database.EnsureCreated();
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<CastMember>().HasKey(table => new
+            {
+                table.DVDNumber,
+                table.ActorNumber
+            });
+        }
     }
+
 }

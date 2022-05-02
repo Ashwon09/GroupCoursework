@@ -30,7 +30,7 @@ namespace GroupCoursework.Migrations
                     CategoryNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryDescription = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    AgeRestricted = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    AgeRestricted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -99,7 +99,21 @@ namespace GroupCoursework.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserPassword = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    UserPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -135,7 +149,8 @@ namespace GroupCoursework.Migrations
                 {
                     DVDNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProduceNumber = table.Column<int>(type: "int", nullable: false),
+                    DvdTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProducerNumber = table.Column<int>(type: "int", nullable: false),
                     CategoryNumber = table.Column<int>(type: "int", nullable: false),
                     StudioNumber = table.Column<int>(type: "int", nullable: false),
                     DateReleased = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -152,8 +167,8 @@ namespace GroupCoursework.Migrations
                         principalColumn: "CategoryNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DVDTitles_Producers_ProduceNumber",
-                        column: x => x.ProduceNumber,
+                        name: "FK_DVDTitles_Producers_ProducerNumber",
+                        column: x => x.ProducerNumber,
                         principalTable: "Producers",
                         principalColumn: "ProducerNumber",
                         onDelete: ReferentialAction.Cascade);
@@ -174,7 +189,7 @@ namespace GroupCoursework.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CastMembers", x => x.DVDNumber);
+                    table.PrimaryKey("PK_CastMembers", x => new { x.DVDNumber, x.ActorNumber });
                     table.ForeignKey(
                         name: "FK_CastMembers_Actors_ActorNumber",
                         column: x => x.ActorNumber,
@@ -196,6 +211,7 @@ namespace GroupCoursework.Migrations
                     CopyNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DVDNumber = table.Column<int>(type: "int", nullable: false),
+                    Stock = table.Column<int>(type: "int", nullable: false),
                     DatePurchased = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -261,9 +277,9 @@ namespace GroupCoursework.Migrations
                 column: "CategoryNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DVDTitles_ProduceNumber",
+                name: "IX_DVDTitles_ProducerNumber",
                 table: "DVDTitles",
-                column: "ProduceNumber");
+                column: "ProducerNumber");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DVDTitles_StudioNumber",

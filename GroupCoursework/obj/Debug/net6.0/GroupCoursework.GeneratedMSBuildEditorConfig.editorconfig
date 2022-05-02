@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -55,24 +59,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitles/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitles/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVzXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitles/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitles/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitles/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVzXEluZGV4LmNzaHRtbA==
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitle/DVDTitleCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVcRFZEVGl0bGVDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Home/Index.cshtml]
@@ -129,6 +117,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Studios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGlvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/User/GetActorDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRBY3RvckRldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/_ViewImports.cshtml]

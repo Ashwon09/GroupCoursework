@@ -9,9 +9,9 @@ namespace GroupCoursework.Models
         [Key]
         public int DVDNumber { get; set; }
         public string DvdTitle { get; set; }
-        public int ProduceNumber { get; set; }
-        [ForeignKey("ProduceNumber")]
-        public Producer Produce { get; set; }
+        public int ProducerNumber { get; set; }
+        [ForeignKey("ProducerNumber")]
+        public Producer Producer { get; set; }
         public int CategoryNumber { get; set; }
         [ForeignKey("CategoryNumber")]
         public DVDCategory Category { get; set; }

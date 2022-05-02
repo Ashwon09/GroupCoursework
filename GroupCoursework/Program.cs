@@ -12,7 +12,7 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(b
 //registering identity services to use identity functionaltiy for handling our database
 // to manage the detils of registered user
 // to manage user role info
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DatabaseContext>();
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DatabaseContext>();
 
 var app = builder.Build();
 

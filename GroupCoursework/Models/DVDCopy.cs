@@ -12,6 +12,7 @@ namespace GroupCoursework.Models
         [ForeignKey("DVDNumber")]
         public DVDTitle DVDTitle { get; set; }
         [Required(ErrorMessage = "Purchased Date is required")]
+        public int Stock { get; set; }
         public DateTime DatePurchased { get; set; }
     }
 }

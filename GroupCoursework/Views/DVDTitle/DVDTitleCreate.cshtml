@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "DVDTitleCreate";
+}
+
+<h1>DVDTitleCreate</h1>
+
+ <form action="/DVDTitle/Create" method="post">
+            <div class="form-group">
+                <label> DVD Title</label>
+                 <input type="text" id="surname" name="DVDname" class="form-control" required>
+            </div>
+            <div class="form-group">
+                 <label> Producer</label>
+                 <select id="surname" name="producer" class="form-control" required>
+                        <option value="">Select a actor surname</option>
+                        @foreach (var name in ViewBag.Producer)
+                        {
+                            <option value="@name.ProducerNumber">  @name.ProducerName</option>
+                        }
+                    </select>
+            </div>
+            <div class="form-group">
+                <label> Category</label>
+                 <select id="surname" name="category" class="form-control custom-select bg-white border-left-0 border-md" required>
+                        <option value="">Select a actor surname</option>
+                        @foreach (var name in ViewBag.Category)
+                        {
+                            <option value="@name.CategoryNumber">@name.CategoryDescription</option>
+                        }
+                    </select>
+            </div>
+            <div class="form-group">
+                <label> Studio</label>
+                 <select id="surname" name="studio" class="form-control custom-select bg-white border-left-0 border-md" required>
+                        <option value="">Select a actor surname</option>
+                        @foreach (var name in ViewBag.Studio)
+                        {
+                            <option value="@name.StudioNumber">@name.StudioName</option>
+                        }
+                    </select>
+            </div>
+            <div class="form-group">
+               <label> Date Released</label>
+                 <input id="surname" type="date" name="DateReleased" class="form-control" required>
+            </div>
+            <diiv class="form-group">
+               <label> Standard Charge</label>
+                 <input id="surname" type="number" name="StandardCharge" class="form-control" required>
+            </div>
+            
+            <di  <label> Penalty Charge</label>
+                 <input id="surname" type="number" name="PenaltyCharge" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <Button type="submit" class="btn btn-primary" />
+            </div>
+        </form>
+

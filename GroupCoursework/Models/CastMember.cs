@@ -5,11 +5,11 @@ namespace GroupCoursework.Models
 {
     public class CastMember
     {
-         [Key]
-        public int CastMemberNo { get; set; }
+        [Key]
         public int DVDNumber { get; set; }
         [ForeignKey("DVDNumber")]
         public DVDTitle DVDTitle { get; set; }
+        [Key]
         public int ActorNumber { get; set; }
         [ForeignKey("ActorNumber")]
         public Actor Actor { get; set; }
