@@ -35,8 +35,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/EditDVDCopyDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEVkaXREVkRDb3B5RGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetDateOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldERhdGVPdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetDVDCopyListNotLoaned.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldERWRENvcHlMaXN0Tm90TG9hbmVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetDVDofNoLoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldERWRG9mTm9Mb2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetListOfDVDCopy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldExpc3RPZkRWRENvcHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetLoanDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldExvYW5EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/GetTotalLoans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XEdldFRvdGFsTG9hbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/ListAllLoans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XExpc3RBbGxMb2Fucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Assistant/MemberListNotBorrowed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaXN0YW50XE1lbWJlckxpc3ROb3RCb3Jyb3dlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDCategories/Create.cshtml]
@@ -59,8 +95,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitle/DVDTitleCreate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVcRFZEVGl0bGVDcmVhdGUuY3NodG1s
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitle/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/DVDTitle/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Home/Index.cshtml]
@@ -117,6 +157,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Studios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGlvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/User/GetActorCopy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRBY3RvckNvcHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/User/GetActorDetails.cshtml]

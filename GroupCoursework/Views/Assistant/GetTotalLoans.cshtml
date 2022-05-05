@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "GetTotalLoans";
+}
+
+<h1>Total loans a member has taken</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Membership First Name</th>
+            <th>Membership Category Number</th>
+            <th>Allowed Loans</th>
+            <th>Total Loans</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.totalloans)
+        {
+
+          
+            <tr>
+
+                <td style="width:210px">@item.MembershipFirstName</td>
+                <td style="width:210px">@item.MembershipCategoryNumber</td>
+                <td style="width:180px">@item.MembershipCategoryTotalLoans</td>
+                <td style="width:180px">@item.TotalLoans</td>
+                  @if (int.Parse(@item.MembershipCategoryTotalLoans) < @item.TotalLoans)
+                {
+                    <td class="text-danger">Too many DVDs on loaned</td>
+                }
+                else
+                {
+                    <td>Loan  left</td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -9,9 +9,11 @@ namespace GroupCoursework.Models
         public int DVDNumber { get; set; }
         [ForeignKey("DVDNumber")]
         public DVDTitle DVDTitle { get; set; }
+
         [Key]
         public int ActorNumber { get; set; }
         [ForeignKey("ActorNumber")]
         public Actor Actor { get; set; }
+
     }
 }
