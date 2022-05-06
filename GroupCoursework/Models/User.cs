@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GroupCoursework.Models
 {
-    public class User:IdentityUser
+    public class User
 
     {
         [Key]

@@ -4,6 +4,7 @@ using GroupCoursework.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroupCoursework.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220506120849_InitialCreate.cs")]
+    partial class InitialCreatecs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace GroupCoursework.Migrations
                     b.Property<int>("ActorNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("DVDNumber", "ActorNumber");
+                    b.HasKey("DVDNumber");
 
                     b.HasIndex("ActorNumber");
 

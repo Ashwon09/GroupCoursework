@@ -15,6 +15,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\DOT NET\Group Coursework\GroupCoursework\GroupCoursework
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Account/RegisterAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Account/RegisterStaff.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlclN0YWZmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DOT NET/Group Coursework/GroupCoursework/GroupCoursework/Views/Actors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

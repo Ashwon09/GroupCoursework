@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GroupCoursework.Models
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext
 
     {
         public DbSet<Actor> Actors { get; set; }
@@ -16,6 +16,7 @@ namespace GroupCoursework.Models
         public DbSet<Member> Members { get; set; }
         public DbSet<MembershipCategory> MembershipCategorys { get; set; }
         public DbSet<Producer> Producers { get; set; }
+
         public DbSet<Studio> Studios { get; set; }
         public DbSet<User> Users { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
@@ -31,6 +32,7 @@ namespace GroupCoursework.Models
                 table.DVDNumber,
                 table.ActorNumber
             });
+            base.OnModelCreating(builder);
         }
     }
 
