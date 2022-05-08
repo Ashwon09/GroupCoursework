@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3JZMqPzswjqvFhl/ds/jVOXbxTQc1jEYB5InC/GAgmc=",
+  "Hash": "HArJH8Yl2kL4VGm1+27vVlRvsc5eli0lE9ojGzT74lA=",
   "Source": "GroupCoursework",
   "BasePath": "_content/GroupCoursework",
   "Mode": "Default",
@@ -187,6 +187,23 @@
       "OriginalItemSpec": "wwwroot\\images\\15.jpg"
     },
     {
+      "Identity": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\images\\16.jpg",
+      "SourceId": "GroupCoursework",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\",
+      "BasePath": "_content/GroupCoursework",
+      "RelativePath": "images/16.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\16.jpg"
+    },
+    {
       "Identity": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\images\\2.jpg",
       "SourceId": "GroupCoursework",
       "SourceType": "Discovered",
@@ -321,6 +338,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\9.jpg"
+    },
+    {
+      "Identity": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\images\\bgimage.png",
+      "SourceId": "GroupCoursework",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\",
+      "BasePath": "_content/GroupCoursework",
+      "RelativePath": "images/bgimage.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bgimage.png"
     },
     {
       "Identity": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\images\\homepage1.png",

@@ -7,64 +7,77 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center" style="color:white;font-weight:800">Index</h1>
+<style>
+    /*.container {
+        background-color: rgba(255,255,255,0.13);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+    }*/
 
-<div>
-     <ul class="m-2">
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="User" asp-action="GetActorDetails">1. DVD's Stocked by the shop</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="User" asp-action="GetActorCopy">2. Check Copies</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDateOut">3. Select member's' loaned DVDs within the 31 Days</a>
-            </li>
+    li{
+        font-weight:700;
+    }
+</style>
 
+<div class="container">
+    <ul class="m-2" style="opacity:80%;">
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="User" asp-action="GetActorDetails">1. DVD's Stocked by the shop</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="User" asp-action="GetActorCopy">2. Check Copies</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDateOut">3. Select member's' loaned DVDs within the 31 Days</a>
+        </li>
+
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetList">4. List of Producer, Studio and cast list of all the DVDs</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetLoanDetails">5. Last Loaned Detail</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="ListAllMembers">6. Issue DVD copy to loan a member</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="ListAllLoans">7. Returned DVD copy report</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetTotalLoans">8. List of all members with their detail like loans</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="CreateDVDTitle">9. Create new DVD title</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetListOfDVDCopy">10. Delete Old DVDs</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDVDCopyListNotLoaned">11. List of all DVD copies currently on loan </a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="MmemberListNotBorrowed">12. Member who has not borrowed DVD for the past 31 days</a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDVDofNoLoan">
+                13. List of all DVD titles in the shop where no copy of the
+                title has been loaned in the last 31 days
+            </a>
+        </li>
+        <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Account" asp-action="ResetPassword">14. Password Change</a>
+        </li>
+        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+        {
             <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetList">4. List of Producer, Studio and cast list of all the DVDs</a>
+                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Account" asp-action="ResetUsersPassword">14. Reset Other User Password</a>
             </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetLoanDetails">5. Last Loaned Detail</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="ListAllMembers">6. Issue DVD copy to loan a member</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="ListAllLoans">7. Returned DVD copy report</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetTotalLoans">8. List of all members with their detail like loans</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="CreateDVDTitle">9. Create new DVD title</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetListOfDVDCopy">10. Delete Old DVDs</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDVDCopyListNotLoaned">11. List of all DVD copies currently on loan </a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="MmemberListNotBorrowed">12. Member who has not borrowed DVD for the past 31 days</a>
-            </li>
-            <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDVDofNoLoan">
-                    13. List of all DVD titles in the shop where no copy of the
-                    title has been loaned in the last 31 days
-                </a>
-            </li>
-            <li class="list-group m-1">
-                    <a class="list-group-item" asp-area="" style="color: black" asp-controller="Account" asp-action="ResetPassword">14. Password Change</a>
-                </li>
-            @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-            {
-                <li class="list-group m-1">
-                    <a class="list-group-item" asp-area="" style="color: black" asp-controller="Account" asp-action="ResetUsersPassword">14. Reset Other User Password</a>
-                </li>
-            }
+        }
 
 
 
-        </ul>
+    </ul>
 </div>
+<br />

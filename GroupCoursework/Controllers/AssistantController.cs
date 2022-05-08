@@ -238,8 +238,7 @@ order by  dt.DateReleased asc,a.ActorSurname asc
                 }
                 else {
                     ViewBag.message = "hello";
-                return RedirectToAction("AddDVDCopy","Assistant");
-
+                return RedirectToAction("AddDVDCopyMessage", "Assistant");
                     //cannot loan the dvd due to age restriction
                 }
             }
@@ -247,6 +246,29 @@ order by  dt.DateReleased asc,a.ActorSurname asc
 
         }
 
+        public IActionResult AddDVDCopyMessage()
+        {
+            var dvdcopy = _dbcontext.DVDCopys.ToList();
+            var dvdtitle = _dbcontext.DVDTitles.ToList();
+
+            var members = _dbcontext.Members.ToList();
+
+            var loanType = _dbcontext.LoanTypes.ToList();
+
+            ViewBag.member = members;
+            ViewBag.loanType = loanType;
+
+            var dvd = from dc in dvdcopy
+                      join dt in dvdtitle on dc.DVDNumber equals dt.DVDNumber
+                      select new
+                      {
+                          dvdtitle = dt,
+                          dvdcopy = dc,
+                      };
+            ViewBag.dvd = dvd;
+
+            return View();
+        }
 
 
         //FUNCTION 7 SHOWING ALL 
