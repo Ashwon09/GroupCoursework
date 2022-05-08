@@ -1,15 +1,24 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "GetActorCopy";
 }
+<style>
+body{
+background-image:url("../images/9.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+th{
+    color:white;
+}
+</style>
+<body>
 
-<h1>GetActorsLoanCopy</h1>
+<h1 class="text-center" style="font-weight:800; color:#F1C381;">Get Actor's Loan Copy</h1>
 
 <div class="container">
     <form action="@Url.Action("GetActorCopy", "User")" method="get">
         <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
+                <div class="input-group">
                     <label for="ActorSurName" class="control-label"></label>
                     <select id="actorID" name="actorID" class="form-control custom-select bg-white border-left-0 border-md" required>
                         <option value="">Select a actor surname</option>
@@ -18,20 +27,20 @@
                             <option value="@name.ActorNumber"> @name.ActorFirstName @name.ActorSurname</option>
                         }
                     </select>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Search</button>
+
+            <div class="input-group-append">
+                        <button type="submit" style="background-color: #F2D8B3; border:#F2D8B3; color: #CD8F64;">Search</button>
                     </div>
                 </div>
-            </div>
-        </div>
+               </div>
     </form>
 </div>
+<br />
 
-<table class="table">
+<div class="container">
+<div class="card" style="background-color:#A96536; opacity:70%;">
+
+<table class="table" style="color:white;">
     <thead>
         <tr>
             <th>DVD Title Name</th>
@@ -50,4 +59,6 @@
         }
     </tbody>
 </table>
-
+</div>
+</div>
+</body>
