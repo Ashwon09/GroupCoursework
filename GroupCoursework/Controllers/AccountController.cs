@@ -1,4 +1,5 @@
 ﻿using GroupCoursework.Models;
+using GroupCoursework.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -16,7 +17,8 @@ namespace GroupCoursework.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        //FOR REGISTER page vierw
+        //FOR REGISTER page view
+        [Authorize(Roles = "Admin")]
         public IActionResult RegisterStaff()
         {
             return View();
@@ -30,6 +32,7 @@ namespace GroupCoursework.Controllers
         //
         [HttpPost]
         //FOR REGISTER STAFF AND ASSIGN ROLE
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> RegisterStaff(RegisterModel registermodel)
         {
             //check if incoming model object is valid
@@ -94,6 +97,8 @@ namespace GroupCoursework.Controllers
             return View(registermodel);
         }
 
+
+
         //FOR LOGIN PAGE VIEW
         [HttpGet]
         [AllowAnonymous]
@@ -119,9 +124,58 @@ namespace GroupCoursework.Controllers
                 ModelState.AddModelError(string.Empty, "Invalid Username/Password");
 
             }
-            return View(loginmodel);
+            return View();
         }
 
+        //Logout
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Login");
+        }
+
+        //Function 14
+        //Account/ResetPassword
+        [HttpGet]
+        [Authorize]
+        public IActionResult ResetPassword()
+        {
+
+            return View();
+        }
+
+        //Account/ResetPassword
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(User); //gets current logged in user records
+                if (user == null)
+                {
+                    return RedirectToAction("Login");
+                }
+
+                //changes user password method is this..
+
+                var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+                if (!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    return View();
+                }
+
+                await _signInManager.RefreshSignInAsync(user);
+                return View("ResetPasswordConfirmation");
+            }
+            return View();
+        }
 
         // GET: AccountController
         public ActionResult Index()

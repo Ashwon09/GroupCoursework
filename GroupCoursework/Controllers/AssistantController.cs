@@ -1,9 +1,11 @@
 ﻿using GroupCoursework.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GroupCoursework.Controllers
 {
+    [Authorize(Roles ="Admin,Staff")]
     public class AssistantController : Controller
     {
         private readonly DatabaseContext _dbcontext;
@@ -152,7 +154,98 @@ order by  dt.DateReleased asc,a.ActorSurname asc
 
 
         //Function 6 
+        public IActionResult AddDVDCopy() {
+            var dvdcopy = _dbcontext.DVDCopys.ToList();
+            var dvdtitle = _dbcontext.DVDTitles.ToList();
 
+            var members = _dbcontext.Members.ToList();
+            
+            var loanType = _dbcontext.LoanTypes.ToList();
+
+            ViewBag.member = members;
+            ViewBag.loanType = loanType;
+
+            var dvd = from dc in dvdcopy
+                      join dt in dvdtitle on dc.DVDNumber equals dt.DVDNumber
+                       select new { 
+                       dvdtitle = dt,
+                       dvdcopy = dc,
+                       };
+            ViewBag.dvd = dvd;
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddDVDCopy(Loan Loan, int member, int loantype, int copynumber)
+        {
+            var memberInfo = _dbcontext.Members.Where(x => x.MembershipNumber == member).First();
+            String dob = memberInfo.MemberDOB;//GETTING MEMBER DOB
+            String todaysDate = DateTime.Now.ToShortDateString();
+
+            var today = DateTime.Now.ToShortDateString();
+
+
+            //CONVERTING IN DATE TIME
+            DateTime cDOB = DateTime.Parse(dob);
+            DateTime ctodaysDate = DateTime.Parse(todaysDate);
+
+            TimeSpan dayDiff = ctodaysDate.Subtract(cDOB);
+            Console.Write(dayDiff.Days.ToString());
+            var age = dayDiff.Days / 365;
+            Console.Write(age);
+
+            
+
+            var dvd = _dbcontext.DVDTitles.ToList();
+            var catogory = _dbcontext.DVDCategorys.ToList();
+            // var dvdCopy = _dbcontext.DVDCopys.ToList();
+            var dvdCopy = _dbcontext.DVDCopys.Where(x => x.CopyNumber == copynumber).First();
+            var dvdInfo = _dbcontext.DVDTitles.Where(x => x.DVDNumber == dvdCopy.DVDNumber).First();
+
+            var agerestriction = dvdInfo.Category.AgeRestricted;
+
+            Loan.MemberNumber = member;
+            Loan.LoanTypeNumber = loantype;
+            Loan.CopyNumber = copynumber;
+            Loan.DateOut = DateTime.Now.ToShortDateString();
+            if (loantype == 1)
+            {
+                Loan.DateDue = DateTime.Now.AddMonths(1).ToShortDateString();
+            }
+            else
+            {
+                Loan.DateDue = DateTime.Now.AddMonths(3).ToShortDateString();
+            }
+            Loan.DateReturned = "0";
+
+            if (!agerestriction)
+            {
+                _dbcontext.Loans.Add(Loan);
+                await _dbcontext.SaveChangesAsync();
+
+                return RedirectToAction("AddDVDCopy","Assistant");
+            }
+            if (agerestriction) {
+                if (age > 18)
+                {
+                   
+                    _dbcontext.Loans.Add(Loan);
+                    await _dbcontext.SaveChangesAsync();
+
+                return RedirectToAction("AddDVDCopy","Assistant");
+
+                }
+                else {
+                    ViewBag.message = "hello";
+                return RedirectToAction("AddDVDCopy","Assistant");
+
+                    //cannot loan the dvd due to age restriction
+                }
+            }
+                return RedirectToAction("AddDVDCopy","Assistant");
+
+        }
 
 
 
@@ -220,7 +313,7 @@ order by  dt.DateReleased asc,a.ActorSurname asc
             }
 
 
-            return View();
+            return RedirectToAction("ListAllLoans","Assistant");
         }
 
 
@@ -302,7 +395,7 @@ where (dc.DatePurchased < (GETDATE()-365) and l.DateReturned <> '0')
         }
 
 
-        //FOR FUNCTION 11 //Total count not coming accurately
+        //FOR FUNCTION 11 
         //https://localhost:44344/Assistant/GetDVDCopyListNotLoaned
         public IActionResult GetDVDCopyListNotLoaned()
         {

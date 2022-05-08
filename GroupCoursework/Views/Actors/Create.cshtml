@@ -4,34 +4,39 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Actor</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<div class="bg-image">
+  <div class="container mt-5 mb-5">
+    <div class="card" style="opacity: 85%;">
+      <div class="card-header">
+        <h1>Register Admin</h1>
+      </div>
+      <div class="card-body">
+    <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="ActorFirstName" class="control-label"></label>
                 <input asp-for="ActorFirstName" class="form-control" />
                 <span asp-validation-for="ActorFirstName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="ActorSurname" class="control-label"></label>
                 <input asp-for="ActorSurname" class="form-control" />
                 <span asp-validation-for="ActorSurname" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="col-md-12 mt-3">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+      </div>
     </div>
+  </div>
+  <div>
+    <a class="btn btn-success"asp-action="Index">Back to List</a>
+</div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

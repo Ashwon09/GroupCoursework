@@ -5,6 +5,7 @@
 
 <h1>Total loans a member has taken</h1>
 
+
 <table class="table">
     <thead>
         <tr>
@@ -32,7 +33,8 @@
                 }
                 else
                 {
-                    <td>Loan  left</td>
+                    var leftview = int.Parse(@item.MembershipCategoryTotalLoans) - @item.TotalLoans;
+                    <td>Loan  @leftview left</td>
                 }
 
             </tr>

@@ -3,38 +3,65 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
+<head>
+    <title>
+        Login Page
+    </title>
+    <style>
+        #bgcolor {
+            background-color: #FF4CBA;
+            /* For browsers that do not support gradients */
+            background-image: linear-gradient(#FF4CBA, #ff7bcd, pink);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 
-<div class="row">
-    <div class="col-md-12">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input asp-for="RememberMe" type="checkbox" class="custom-control-input">
-                    <label class="custom-control-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
+<body style="overflow-x: hidden" id="bgcolor">
+    <div class="wrapper">
+        <div class="card" style="width: 70rem; height: 30rem; position: relative; margin:auto; margin-top: 125px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <img class="d-block w-100" style="width:45px; height: 27rem;" src="~/images/Ropey.png">
+                    </div>
+                    <div class="col-6">
+                            <div class="text-center">
+                                <h3 style="color: #ff7bcd; font-weight: 200px;">Login</h3>
+                            </div>
+                            <form method="post">
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="Email"></label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label asp-for="Password"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                    
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input asp-for="RememberMe" type="checkbox" class="custom-control-input">
+                                        <label class="custom-control-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
+                                    </div>
+                    
+                                </div>
+                                 <p>
+                                        @Html.ActionLink("Register as a new user", "Register")
+                                    </p><p>
+                                        @Html.ActionLink("Reset Password", "ResetPassword")
+                                    </p>
+                                <button type="submit" class="btn-primary">Login</button>
+                            </form>
+                    </div>
                 </div>
-
             </div>
-             <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p><p>
-                    @Html.ActionLink("Reset Password", "ResetPassword")
-                </p>
-            <button type="submit" class="btn-primary">Login</button>
-        </form>
-
+        </div>
     </div>
-</div>
+   </body>
+

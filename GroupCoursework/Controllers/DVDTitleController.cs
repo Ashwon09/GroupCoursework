@@ -1,10 +1,12 @@
 ﻿using GroupCoursework.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GroupCoursework.Controllers
 {
+    [Authorize(Roles = "Admin,Staff")]
     public class DVDTitleController : Controller
     {
         private readonly DatabaseContext _context;
