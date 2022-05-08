@@ -3,7 +3,19 @@
     ViewData["Title"] = "AddDVDCopy";
 }
 
+
 <h1>AddDVDCopy</h1>
+@if (ViewBag.IsSuccess != null)
+{
+    @if (!ViewBag.IsSuccess)
+    {
+        <div class="text-danger">Member's Age is not suitable for the DVD</div>
+    }
+    @if (ViewBag.IsSuccess)
+    {
+        <div class="text-success">DVD successfully loaned</div>
+    }
+}
 <form action="/Assistant/AddDVDCopy" method="post">
             <div class="form-group">
                  <label> Producer</label>

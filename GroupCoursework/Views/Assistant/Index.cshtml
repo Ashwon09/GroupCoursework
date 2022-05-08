@@ -40,7 +40,7 @@
             <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetLoanDetails">5. Last Loaned Detail</a>
         </li>
         <li class="list-group m-1">
-            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="ListAllMembers">6. Issue DVD copy to loan a member</a>
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="AddDVDCopy">6. Issue DVD copy to loan a member</a>
         </li>
         <li class="list-group m-1">
             <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="ListAllLoans">7. Returned DVD copy report</a>
@@ -49,7 +49,16 @@
             <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetTotalLoans">8. List of all members with their detail like loans</a>
         </li>
         <li class="list-group m-1">
-            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="CreateDVDTitle">9. Create new DVD title</a>
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="DVDTitle" asp-action="Create">9. Create new DVD title</a>
+        </li>
+           <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Producer" asp-action="Create">9. Create new Producer title</a>
+        </li>
+          <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Studio" asp-action="Create">9. Create new Studio title</a>
+        </li>
+          <li class="list-group m-1">
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Actor" asp-action="Create">9. Create new Actor title</a>
         </li>
         <li class="list-group m-1">
             <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetListOfDVDCopy">10. Delete Old DVDs</a>
@@ -58,7 +67,7 @@
             <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDVDCopyListNotLoaned">11. List of all DVD copies currently on loan </a>
         </li>
         <li class="list-group m-1">
-            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="MmemberListNotBorrowed">12. Member who has not borrowed DVD for the past 31 days</a>
+            <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="MemberListNotBorrowed">12. Member who has not borrowed DVD for the past 31 days</a>
         </li>
         <li class="list-group m-1">
             <a class="list-group-item" asp-area="" style="color: black" asp-controller="Assistant" asp-action="GetDVDofNoLoan">
@@ -72,7 +81,10 @@
         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
         {
             <li class="list-group m-1">
-                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Account" asp-action="ResetUsersPassword">14. Reset Other User Password</a>
+                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Account" asp-action="ListUsers">14. Reset Other User Password</a>
+            </li>
+              <li class="list-group m-1">
+                <a class="list-group-item" asp-area="" style="color: black" asp-controller="Account" asp-action="RegisterStaff">Register Staff</a>
             </li>
         }
 

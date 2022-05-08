@@ -61,7 +61,7 @@ namespace GroupCoursework.Controllers
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
 
             }
-            return View(registermodel);
+            return RedirectToAction("RegisterStaff");
         }
 
         //FOR ADMIN RESGISTRER
@@ -177,79 +177,23 @@ namespace GroupCoursework.Controllers
             return View();
         }
 
-        // GET: AccountController
-        public ActionResult Index()
+        [Authorize(Roles = "Admin")]
+        public IActionResult ListUsers()
         {
+            var users = _userManager.Users;
+            ViewBag.users = users;
             return View();
         }
-
-        // GET: AccountController/Details/5
-        public ActionResult Details(int id)
+        
+           public async Task<IActionResult> ResetUserPassword(string email, string password)
         {
-            return View();
+            bool suc = false;
+            var user = await _userManager.FindByNameAsync(email);
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var userPassword = await _userManager.ResetPasswordAsync(user, token, password);
+
+            return RedirectToAction("ListUsers", new { email = email, IsSuccess = true });
         }
 
-        // GET: AccountController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: AccountController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AccountController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: AccountController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AccountController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: AccountController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

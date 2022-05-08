@@ -12,6 +12,10 @@ builder.Services.AddControllersWithViews();
 // to manage user role info
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DatabaseContext>();
 
+
+builder.Services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<DatabaseContext>()
+                .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

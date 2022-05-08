@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "ListUsers";
+}
+
+<h1>Reset Users Password</h1>
+
+ <form action="@Url.Action("ResetUserPassword", "Account")" method="post">
+                     
+            <label type="Email">Email</label>
+
+             <select id="email" name="email" class="form-control custom-select bg-white border-left-0 border-md" required>
+                        <option value="">Select a User Name</option>
+                        @foreach (var name in ViewBag.users)
+                        {
+                            <option value="@name.UserName">@name.UserName</option>
+                        }
+                    </select>
+            <label type="Password" class="mt-2">Enter New Password</label>
+            <input id="password" name="password" class="form-control" />
+            <button type="submit" class="btn btn-primary">Reset</button>
+        </form>
+

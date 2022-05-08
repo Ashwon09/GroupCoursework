@@ -237,7 +237,6 @@ order by  dt.DateReleased asc,a.ActorSurname asc
 
                 }
                 else {
-                    ViewBag.message = "hello";
                 return RedirectToAction("AddDVDCopyMessage", "Assistant");
                     //cannot loan the dvd due to age restriction
                 }
@@ -335,9 +334,20 @@ order by  dt.DateReleased asc,a.ActorSurname asc
             }
 
 
-            return RedirectToAction("ListAllLoans","Assistant");
+            return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> RecordDVDCopy
+       (Loan loan, int loanNumber, int loantypenumber, int copynumber, int membernumber, string dateOut, string dateReturned, string dateDue)
+        {
+            loan = _dbcontext.Loans.Where(l => l.LoanTypeNumber == loantypenumber).First();
+
+            loan.DateReturned = dateReturned;
+                _dbcontext.Loans.Update(loan);
+                var result = await _dbcontext.SaveChangesAsync();
+                return RedirectToAction("ListAllLoans");
+        }
 
         //FUNCTION 8 
         // Assistant/GetLoans
