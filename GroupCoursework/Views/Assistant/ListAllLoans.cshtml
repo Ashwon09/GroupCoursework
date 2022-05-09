@@ -1,23 +1,33 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "ListAllLoans";
 }
-
-
-<h1>Details of DVD currently on loan</h1>
-<table class="table">
+<style>
+body{
+background-image:url("../images/3.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+th{
+    color:white;
+}
+</style>
+<body>
+<h1 class="text-center" style="font-weight:800; color:white;">Details of DVD currently on loan</h1>
+<div class="container">
+<table class="table" style="color:white;">
     <thead>
-        <tr style="color:white; background-color:darkblue; height: 50px; text-align:center">
+        <tr style="color:white; background-color:#F2D8B3; height: 50px; text-align:center">
             <th>Copy Number</th>
             <th>Membership FirstName</th>
             <th>Date Due</th>
             <th>Date Returned</th>
+             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in ViewBag.loanDetails)
         {
-            <tr style="text-align:center">
+            <tr style="text-align:center" >
                 <td style="width:160px">@item.loan.CopyNumber </td>
                 <td style="width:200px">@item.member.MembershipFirstName </td>
                 <td style="width:160px">@item.loan.DateDue </td>
@@ -33,4 +43,5 @@
         }
     </tbody>
 </table>
-
+</div>
+</body>

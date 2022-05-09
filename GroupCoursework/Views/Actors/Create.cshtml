@@ -3,13 +3,21 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+<style>
+body{
+background-image:url("../images/10.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+</style>
+<body>
 
 <div class="bg-image">
   <div class="container mt-5 mb-5">
-    <div class="card" style="opacity: 85%;">
+    <div class="card" style="opacity: 85%;background-color:#F2D8B3">
       <div class="card-header">
-        <h1>Register Admin</h1>
+        <h1 class="text-center" style="font-weight:850; color:#CD8F64;">Create</h1>
+        <h4 class="text-center" style="font-weight:800; color:#CD8F64;">Actor</h4>
       </div>
       <div class="card-body">
     <form asp-action="Create">
@@ -24,17 +32,18 @@
                 <input asp-for="ActorSurname" class="form-control" />
                 <span asp-validation-for="ActorSurname" class="text-danger"></span>
             </div>
-            <div class="col-md-12 mt-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="col-md-12 mt-3 text-center">
+                <input type="submit" value="Create" class="btn"  style="background-color: #CD8F64; font-weight:700; font-size: 20px; border-radius:50px; height:60px; width:200px; border:#CD8F64; color:#F2D8B3;"/>
             </div>
         </form>
       </div>
     </div>
   </div>
   <div>
-    @*<a class="btn btn-success"asp-action="Index">Back to List</a>*@
+
 </div>
 </div>
+</body>
 
 
 

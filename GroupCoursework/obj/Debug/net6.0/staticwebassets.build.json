@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uqRZhn7DR0JIJOviTuerOzJl3vLnFRsUojfWN4xAz6k=",
+  "Hash": "3d85yUZM0xcsvMKXW8kgswX0wluVBGJmAn3QSeYaI1Y=",
   "Source": "GroupCoursework",
   "BasePath": "_content/GroupCoursework",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\images\\03.png",
+      "SourceId": "GroupCoursework",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\",
+      "BasePath": "_content/GroupCoursework",
+      "RelativePath": "images/03.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\03.png"
     },
     {
       "Identity": "D:\\DOT NET\\Group Coursework\\GroupCoursework\\GroupCoursework\\wwwroot\\images\\1.jpg",

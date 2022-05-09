@@ -3,12 +3,25 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+body{
+background-image:url("../images/homepage1.png");
+background-repeat:no-repeat;
+background-size:cover;
+}
+th{
+    color:white;
+}
+</style>
+<body>
 
-<h1>Index</h1>
 
+<h1 class="text-center" style="font-weight:800; color: #F1C381;">Index</h1>
+<div class="container">
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div class="card" style="background-color:#A96536;">
 <table class="table">
     <thead>
         <tr>
@@ -39,3 +52,6 @@
 }
     </tbody>
 </table>
+</div>
+</div>
+</body>

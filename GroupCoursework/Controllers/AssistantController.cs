@@ -361,7 +361,7 @@ order by  dt.DateReleased asc,a.ActorSurname asc
 
             loan.DateReturned = dateReturned;
                 _dbcontext.Loans.Update(loan);
-                var result = await _dbcontext.SaveChangesAsync();
+              await _dbcontext.SaveChangesAsync();
                 return RedirectToAction("ListAllLoans");
         }
 

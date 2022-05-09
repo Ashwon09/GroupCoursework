@@ -1,11 +1,17 @@
 ﻿
+
 @{
     ViewData["Title"] = "ListUsers";
 }
 
-<h1>Reset Users Password</h1>
-
- <form action="@Url.Action("ResetUserPassword", "Account")" method="post">
+<div class="bg-image">
+  <div class="container mt-5 mb-5">
+    <div class="card" style="opacity: 85%;">
+      <div class="card-header">
+        <h1>Reset Users Password</h1>
+      </div>
+      <div class="card-body">
+        <form action="@Url.Action("ResetUserPassword", "Account")" method="post">
                      
             <label type="Email">Email</label>
 
@@ -18,6 +24,10 @@
                     </select>
             <label type="Password" class="mt-2">Enter New Password</label>
             <input id="password" name="password" class="form-control" />
-            <button type="submit" class="btn btn-primary">Reset</button>
+            <button type="submit" class="btn btn-primary mt-2">Reset</button>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
 

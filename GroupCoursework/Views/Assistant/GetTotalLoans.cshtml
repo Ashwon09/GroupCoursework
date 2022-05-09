@@ -1,11 +1,21 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "GetTotalLoans";
 }
+<style>
+body{
+background-image:url("../images/4.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+th{
+    color:white;
+}
+</style>
+<body>
+<h1 class="text-center" style="font-weight:800; color: #F1C381;">Total loans a member has taken</h1>
 
-<h1>Total loans a member has taken</h1>
-
-
+<div class="container">
+<div class="card" style="background-color:#A96536;">
 <table class="table">
     <thead>
         <tr>
@@ -20,8 +30,8 @@
         @foreach (var item in ViewBag.totalloans)
         {
 
-          
-            <tr>
+
+            <tr style="color:white;">
 
                 <td style="width:210px">@item.MembershipFirstName</td>
                 <td style="width:210px">@item.MembershipCategoryNumber</td>
@@ -29,7 +39,7 @@
                 <td style="width:180px">@item.TotalLoans</td>
                   @if (int.Parse(@item.MembershipCategoryTotalLoans) < @item.TotalLoans)
                 {
-                    <td class="text-danger">Too many DVDs on loaned</td>
+                    <td style="color: #880808;">Too many DVDs on loaned</td>
                 }
                 else
                 {
@@ -41,4 +51,6 @@
         }
     </tbody>
 </table>
-
+</div>
+</div>
+</body>

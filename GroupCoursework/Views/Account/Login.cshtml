@@ -11,7 +11,7 @@
         #bgcolor {
             background-color: #FF4CBA;
             /* For browsers that do not support gradients */
-            background-image: linear-gradient(#FF4CBA, #ff7bcd, pink);
+            background-image: linear-gradient(#F2D8B3, white);
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -20,7 +20,7 @@
 
 <body style="overflow-x: hidden" id="bgcolor">
     <div class="wrapper">
-        <div class="card" style="width: 70rem; height: 30rem; position: relative; margin:auto; margin-top: 125px;">
+        <div class="card" style="width: 70rem; height: 30rem; position: relative; margin:auto; margin-top: 60px;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-6">
                             <div class="text-center">
-                                <h3 style="color: #ff7bcd; font-weight: 200px;">Login</h3>
+                                <h3 style="color: #F1C381; font-weight: 200px;">Login</h3>
                             </div>
                             <form method="post">
                                 <div asp-validation-summary="All" class="text-danger"></div>
@@ -56,7 +56,9 @@
                                     </p><p>
                                         @Html.ActionLink("Reset Password", "ResetPassword")
                                     </p>
-                                <button type="submit" class="btn-primary">Login</button>
+                                <div class="text-center">
+                                    <button type="submit" class="btn" style="border-radius: 50px; width:120px; background-color: #F2D8B3; border:#F2D8B3; color: #CD8F64;">Login</button>
+                                </div>
                             </form>
                     </div>
                 </div>
@@ -64,4 +66,3 @@
         </div>
     </div>
    </body>
-

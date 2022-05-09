@@ -3,69 +3,84 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DvdTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Studio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateReleased)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StandardCharge)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PenaltyCharge)
-            </th>
-       @*    <th></th>*@
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DvdTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Producer.ProducerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Studio.StudioName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateReleased)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StandardCharge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PenaltyCharge)
-            </td>
-            @*<td>
-                <a asp-action="Edit" asp-route-id="@item.DVDNumber">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DVDNumber">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DVDNumber">Delete</a>
-            </td>*@
-        </tr>
+<style>
+body{
+background-image:url("../images/homepage1.png");
+background-repeat:no-repeat;
+background-size:cover;
 }
-    </tbody>
-</table>
+th{
+    color:white;
+}
+</style>
+<body>
+<h1 class="text-center" style="font-weight:800; color: #F1C381;">Index</h1>
+<div class="container">
+<p>
+    <a class="btn btn-primary" asp-action="Create" style="background-color: #F2D8B3; border:#F2D8B3; color: #CD8F64;">Create New</a>
+</p>
+
+    <div class="card" style="background-color:#A96536;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DvdTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Producer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Studio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateReleased)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StandardCharge)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PenaltyCharge)
+                    </th>
+               @*    <th></th>*@
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DvdTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producer.ProducerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.CategoryNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Studio.StudioName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateReleased)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StandardCharge)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PenaltyCharge)
+                    </td>
+                    @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.DVDNumber">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.DVDNumber">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DVDNumber">Delete</a>
+                    </td>*@
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
