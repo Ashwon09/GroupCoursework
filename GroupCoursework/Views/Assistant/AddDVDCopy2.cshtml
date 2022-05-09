@@ -1,15 +1,17 @@
 ﻿
 @{
-    ViewData["Title"] = "AddDVDCopy";
+    ViewData["Title"] = "AddDVDCopy2";
 }
 
+
 <h1>AddDVDCopy</h1>
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
- Cannot loan DVD as Member is underage
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+Your Price is @ViewBag.Price
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
 
 <form action="/Assistant/AddDVDCopy" method="post">
             <div class="form-group">

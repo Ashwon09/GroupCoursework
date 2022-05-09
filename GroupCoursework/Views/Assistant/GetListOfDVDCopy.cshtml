@@ -2,43 +2,55 @@
 @{
     ViewData["Title"] = "GetListOfDVDCopy";
 }
-
-<h1>The list of DVD Copies purchased year ago and not on loan</h1>
-@if (ViewBag.copyDeleted)
-{
-@*    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>DVD Copy has been deleted!</strong>
-        <button type="button" asp-action="GetListOfDVDCopy" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>*@
+<style>
+body{
+            background-image: url("../images/3.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover
 }
-<table class="table">
-    <thead>
-        <tr>
-
-            <th>Copy Number</th>
-            <th>Date Returned</th>
-            <th>Date Purchased</th>
-                   <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.dvdList)
+</style>
+<body>
+    <div class="container">
+        <h1 style="color: white; text-align:center;">The list of DVD Copies purchased year ago and not on loan</h1>
+        @if (ViewBag.copyDeleted)
         {
-            <tr>
-                <td>@item.dvdCopy.CopyNumber</td>
-                <td>@item.loan.DateReturned</td>
-                <td>@item.dvdCopy.DatePurchased</td>
-                <td>
-                    <ul class="list-inline m-0">
-                        <li class="list-inline-item">
-                            <a href="@Url.Action("DeleteCopy","Assistant",new { item.dvdCopy.CopyNumber} )" class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+            @*    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>DVD Copy has been deleted!</strong>
+                <button type="button" asp-action="GetListOfDVDCopy" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>*@
         }
-    </tbody>
-</table>
+        <div class="card" style="opacity:80%;">
+            <table class="table">
+                <thead>
+                    <tr>
 
+                        <th>Copy Number</th>
+                        <th>Date Returned</th>
+                        <th>Date Purchased</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.dvdList)
+                    {
+                        <tr>
+                            <td>@item.dvdCopy.CopyNumber</td>
+                            <td>@item.loan.DateReturned</td>
+                            <td>@item.dvdCopy.DatePurchased</td>
+                            <td>
+                                <ul class="list-inline m-0">
+                                    <li class="list-inline-item">
+                                        <a href="@Url.Action("DeleteCopy","Assistant",new { item.dvdCopy.CopyNumber} )" class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

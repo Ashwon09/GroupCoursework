@@ -172,13 +172,32 @@ order by  dt.DateReleased asc,a.ActorSurname asc
                        dvdcopy = dc,
                        };
             ViewBag.dvd = dvd;
-
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> AddDVDCopy(Loan Loan, int member, int loantype, int copynumber)
         {
+            var dvdcopy = _dbcontext.DVDCopys.ToList();
+            var dvdtitle = _dbcontext.DVDTitles.ToList();
+
+            var members = _dbcontext.Members.ToList();
+
+            var loanType = _dbcontext.LoanTypes.ToList();
+
+            ViewBag.member = members;
+            ViewBag.loanType = loanType;
+
+            var dvdcd = from dc in dvdcopy
+                      join dt in dvdtitle on dc.DVDNumber equals dt.DVDNumber
+                      select new
+                      {
+                          dvdtitle = dt,
+                          dvdcopy = dc,
+                      };
+            ViewBag.dvd = dvdcd;
+
+
             var memberInfo = _dbcontext.Members.Where(x => x.MembershipNumber == member).First();
             String dob = memberInfo.MemberDOB;//GETTING MEMBER DOB
             String todaysDate = DateTime.Now.ToShortDateString();
@@ -209,31 +228,27 @@ order by  dt.DateReleased asc,a.ActorSurname asc
             Loan.LoanTypeNumber = loantype;
             Loan.CopyNumber = copynumber;
             Loan.DateOut = DateTime.Now.ToShortDateString();
-            if (loantype == 1)
-            {
-                Loan.DateDue = DateTime.Now.AddMonths(1).ToShortDateString();
-            }
-            else
-            {
-                Loan.DateDue = DateTime.Now.AddMonths(3).ToShortDateString();
-            }
+            var loantypeinfo = _dbcontext.LoanTypes.Where(x => x.LoanTypeNumber == loantype).First();
+          
+            Loan.DateDue = DateTime.Now.AddMonths(int.Parse(loantypeinfo.LoanDuration)).ToShortDateString();
             Loan.DateReturned = "0";
-
+            var price = int.Parse(loantypeinfo.LoanDuration) * int.Parse(dvdInfo.StandardCharge);
+       
             if (!agerestriction)
             {
                 _dbcontext.Loans.Add(Loan);
                 await _dbcontext.SaveChangesAsync();
-
-                return RedirectToAction("AddDVDCopy","Assistant");
+                ViewBag.Price = price;
+                return View("AddDVDCopy2");
             }
             if (agerestriction) {
                 if (age > 18)
                 {
-                   
                     _dbcontext.Loans.Add(Loan);
                     await _dbcontext.SaveChangesAsync();
+                    ViewBag.Price = price;
 
-                return RedirectToAction("AddDVDCopy","Assistant");
+                    return View("AddDVDCopy2");
 
                 }
                 else {
@@ -244,6 +259,7 @@ order by  dt.DateReleased asc,a.ActorSurname asc
                 return RedirectToAction("AddDVDCopy","Assistant");
 
         }
+
 
         public IActionResult AddDVDCopyMessage()
         {

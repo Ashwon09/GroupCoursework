@@ -1,85 +1,95 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "DVDTitleCreate";
 }
-
-<h1>DVDTitleCreate</h1>
-
- <form action="/DVDTitle/Create" method="post">
-            <div class="form-group">
-                <label> DVD Title</label>
-                 <input type="text" id="surname" name="DVDname" class="form-control" required>
-            </div>
-            <div class="form-group">
-                 <label> Producer</label>
-                 <select id="surname" name="producer" class="form-control" required>
+<style>
+    body {
+        background-image: url("../images/4.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover
+    }
+</style>
+<body>
+    <div class="container">
+        <h1 style="color: white; text-align:center;">DVDTitleCreate</h1>
+        <div class="card p-4" style="opacity:80%;">
+            <form action="/DVDTitle/Create" method="post">
+                <div class="row">
+                <div class="form-group">
+                    <label> DVD Title</label>
+                    <input type="text" id="surname" name="DVDname" class="form-control" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label> Producer</label>
+                    <select id="surname" name="producer" class="form-control" required>
                         <option value="">Select a Producer</option>
                         @foreach (var name in ViewBag.Producer)
                         {
                             <option value="@name.ProducerNumber">  @name.ProducerName</option>
                         }
                     </select>
-            </div>
-            <div class="form-group">
-                <label> Category</label>
-                 <select id="surname" name="category" class="form-control custom-select bg-white border-left-0 border-md" required>
+                </div>
+                <div class=" col-md-6 form-group">
+                    <label> Category</label>
+                    <select id="surname" name="category" class="form-control custom-select bg-white border-left-0 border-md" required>
                         <option value="">Select a Category</option>
                         @foreach (var name in ViewBag.Category)
                         {
                             <option value="@name.CategoryNumber">@name.CategoryDescription</option>
                         }
                     </select>
-            </div>
-            <div class="form-group">
-                <label> Studio</label>
-                 <select id="surname" name="studio" class="form-control custom-select bg-white border-left-0 border-md" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label> Studio</label>
+                    <select id="surname" name="studio" class="form-control custom-select bg-white border-left-0 border-md" required>
                         <option value="">Select a Studio</option>
                         @foreach (var name in ViewBag.Studio)
                         {
                             <option value="@name.StudioNumber">@name.StudioName</option>
                         }
                     </select>
-            </div>
-            <div class="form-group">
-               <label> Date Released</label>
-                 <input id="surname" type="date" name="DateReleased" class="form-control" required>
-            </div>
-            <div class="form-group">
-               <label> Standard Charge</label>
-                 <input id="surname" type="number" name="StandardCharge" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label> Penalty Charge</label>
-                 <input id="surname" type="number" name="PenaltyCharge" class="form-control" required>
-            </div>
-               <div class="form-group">
-                <label> Cast Member</label> <a class="btn btn-info" onClick="getInputValue()">+</a>
-                <table>   
-                    <thead>
-                    <select id="CastMember" name="actors[]" class="form-control custom-select bg-white border-left-0 border-md" required>
-                        <option value="">Select a Actors</option>
-                        @foreach (var name in ViewBag.Actors)
-                        {
-                            <option value="@name.ActorNumber">@name.ActorFirstName  @name.ActorSurname </option>
-                        }
-                    </select>
-                    </thead>
-                    <tbody>
+                </div>
+                <div class=" col-md-6 form-group">
+                    <label> Date Released</label>
+                    <input id="surname" type="date" name="DateReleased" class="form-control" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label> Standard Charge</label>
+                    <input id="surname" type="number" name="StandardCharge" class="form-control" required>
+                </div>
 
-                    </tbody>
+                <div class=" col-md-6 form-group">
+                    <label> Penalty Charge</label>
+                    <input id="surname" type="number" name="PenaltyCharge" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label> Cast Member</label> <a class="btn btn-info" onClick="getInputValue()">+</a>
+                    <table>
+                        <thead>
+                            <select id="CastMember" name="actors[]" class="form-control custom-select bg-white border-left-0 border-md" required>
+                                <option value="">Select a Actors</option>
+                                @foreach (var name in ViewBag.Actors)
+                                {
+                                    <option value="@name.ActorNumber">@name.ActorFirstName  @name.ActorSurname </option>
+                                }
+                            </select>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
                     </table>
+                </div>
+                <div class="form-group">
+                    <Button type="submit" class="btn btn-primary form-control">Submit</Button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            </div>
-            <div class="form-group">
-                <Button type="submit" class="btn btn-primary form-control" >Submit</Button>
-            </div>
-        </form>
-
-
-        
-        <script>
+    <script>
         function getInputValue(){
+      
           var tr = '<tr>'+ '<td>'+ '<select id="CastMember" name="actors[]" class="form-control custom-select bg-white border-left-0 border-md" required> <option value="">Select a Actors</option>  @foreach (var name in ViewBag.Actors) { <option value="@name.ActorNumber">@name.ActorFirstName  @name.ActorSurname </option>   }   </select> ' +'</td>'+'</tr>'
            
           $('tbody').append(tr);
@@ -87,4 +97,4 @@
 
        
     </script>
-
+</body>
