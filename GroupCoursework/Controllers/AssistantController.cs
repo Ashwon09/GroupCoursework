@@ -310,14 +310,15 @@ order by  dt.DateReleased asc,a.ActorSurname asc
         }
 
 
-        public IActionResult EditDVDCopyDetails(int CopyNumber)
+        public IActionResult EditDVDCopyDetails(int LoanNumber)
         {
             //GET LOAN DETAILS OF THE COPY NUMBER
-            ViewBag.UserLoanDetails = _dbcontext.Loans.Where(l => l.CopyNumber == CopyNumber).First();
+           var details = _dbcontext.Loans.Where(l => l.LoanNumber == LoanNumber).First();
+            ViewBag.UserLoanDetails = details;
             var cop = ViewBag.UserLoanDetails;
 
             //GET DVD OF THE COPY NUMBER
-            ViewBag.CopyDVDNumber = _dbcontext.DVDCopys.Where(c => c.CopyNumber == CopyNumber).First();
+            ViewBag.CopyDVDNumber = _dbcontext.DVDCopys.Where(c => c.CopyNumber == details.CopyNumber).First();
             int copydvdnum = ViewBag.CopyDVDNumber.DVDNumber;
 
             //GET PENALTY CHARGE OF DVD NUMBER
@@ -355,9 +356,9 @@ order by  dt.DateReleased asc,a.ActorSurname asc
 
         [HttpPost]
         public async Task<IActionResult> RecordDVDCopy
-       (Loan loan, int loanNumber, int loantypenumber, int copynumber, int membernumber, string dateOut, string dateReturned, string dateDue)
+       (Loan loan, int LoanNumber, int loantypenumber, int copynumber, int membernumber, string dateOut, string dateReturned, string dateDue)
         {
-            loan = _dbcontext.Loans.Where(l => l.LoanTypeNumber == loantypenumber).First();
+            loan = _dbcontext.Loans.Where(l => l.LoanNumber == LoanNumber).First();
 
             loan.DateReturned = dateReturned;
                 _dbcontext.Loans.Update(loan);
