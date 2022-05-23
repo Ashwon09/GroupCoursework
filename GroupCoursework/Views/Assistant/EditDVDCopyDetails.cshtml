@@ -11,35 +11,35 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label id="LoanNumber" class="control-label">Loan Number</label>
-                <input type="text" value="@ViewBag.UserLoanDetails.LoanNumber" id="LoanNumber" name="LoanNumber" placeholder="">
+                <input type="text" value="@ViewBag.UserLoanDetails.LoanNumber" id="LoanNumber" name="LoanNumber" placeholder="" readonly>
             </div>
             <div class="form-group">
                 <label id="LoanTypeNumber" class="control-label">Loan Type Number</label>
-                <input type="text" value="@ViewBag.UserLoanDetails.LoanTypeNumber" id="LoanTypeNumber" name="LoanTypeNumber" placeholder="">
+                <input type="text" value="@ViewBag.UserLoanDetails.LoanTypeNumber" id="LoanTypeNumber" name="LoanTypeNumber" placeholder="" readonly>
             </div>
             <div class="form-group">
                 <label id="MemberNumber" class="control-label">Member Number</label>
-                <input type="text" value="@ViewBag.UserLoanDetails.MemberNumber" id="MemberNumber" name="MemberNumber" placeholder="">
+                <input type="text" value="@ViewBag.UserLoanDetails.MemberNumber" id="MemberNumber" name="MemberNumber" placeholder="" readonly>
             </div>
             <div class="form-group">
                 <label id="CopyNumber" class="control-label">Copy Number</label>
-                <input type="text" value="@ViewBag.UserLoanDetails.CopyNumber" id="CopyNumber" name="CopyNumber" placeholder="">
+                <input type="text" value="@ViewBag.UserLoanDetails.CopyNumber" id="CopyNumber" name="CopyNumber" placeholder="" readonly>
             </div>
             <div class="form-group">
                 <label id="DateReturned" class="control-label">Date Returned</label>
-                <input type="text" value="@ViewBag.ReturnDate" id="DateReturned" name="DateReturned" placeholder="">
+                <input type="text" value="@ViewBag.ReturnDate" id="DateReturned" name="DateReturned" placeholder="" readonly>
             </div>
              <div class="form-group">
                 <label id="DateOut" class="control-label">Date Out</label>
-                <input type="text" value="@ViewBag.UserLoanDetails.DateOut" id="DateOut" name="DateOut" placeholder="">
+                <input type="text" value="@ViewBag.UserLoanDetails.DateOut" id="DateOut" name="DateOut" placeholder="" readonly>
             </div>
             <div class="form-group">
                 <label id="DateDue" class="control-label">Date Due</label>
-                <input type="text" value="@ViewBag.UserLoanDetails.DateDue" id="DateDue" name="DateDue" placeholder="">
+                <input type="text" value="@ViewBag.UserLoanDetails.DateDue" id="DateDue" name="DateDue" placeholder="" readonly>
             </div>
             <div class="form-group">
                 <label id="OverDue" class="control-label">Over Due Days</label>
-                <input type="text" value="@ViewBag.OverDue" id="OverDue" name="OverDue" placeholder="">
+                <input type="text" value="@ViewBag.OverDue" id="OverDue" name="OverDue" placeholder="" readonly>
             </div>
              <div class="form-group">
                 <label id="PenaltyCharge" class="control-label">Your penalty charge wil be: @ViewBag.OverDue x @ViewBag.PenaltyCharge => @ViewBag.TotalCharge</label>

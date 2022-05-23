@@ -312,7 +312,7 @@ order by  dt.DateReleased asc,a.ActorSurname asc
 
         public IActionResult EditDVDCopyDetails(int LoanNumber)
         {
-            //GET LOAN DETAILS OF THE COPY NUMBER
+            //GET LOAN DETAILS OF THE THE CURRENT LOAN THAT SHOULD BE UPDATED
            var details = _dbcontext.Loans.Where(l => l.LoanNumber == LoanNumber).First();
             ViewBag.UserLoanDetails = details;
             var cop = ViewBag.UserLoanDetails;
